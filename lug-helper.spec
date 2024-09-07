@@ -45,7 +45,7 @@ Exec=%{name}
 Icon=%{name}
 Name=LUG-Helper
 StartupNotify=true
-Terminal=false
+Terminal=true
 Type=Application
 Categories=Game" > %{buildroot}%{_datadir}/applications/%{name}.desktop
 
