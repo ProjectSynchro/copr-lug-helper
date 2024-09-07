@@ -12,7 +12,9 @@ Requires:  bash
 Requires:  coreutils
 Requires:  curl
 Requires:  polkit
-Requires:  zenity
+
+# Soft dependency for Zenity, optional but recommended
+Recommends: zenity
 
 BuildArch: noarch
 
