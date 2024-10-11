@@ -39,7 +39,7 @@ install -m 0755 %{_builddir}/%{name}-%{version}/%{name}.sh %{buildroot}%{_bindir
 install -m 0644 %{_builddir}/%{name}-%{version}/lug-logo.png %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/lug-logo.png
 install -m 0644 %{_builddir}/%{name}-%{version}/rsi-launcher.png %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/rsi-launcher.png
 install -m 0644 %{_builddir}/%{name}-%{version}/lib/lutris-starcitizen.json %{buildroot}%{_datadir}/%{name}/lutris-starcitizen.json
-install -m 0755 %{_builddir}/%{name}-%{version}/lib/sc-launcher.sh %{buildroot}%{_datadir}/%{name}/sc-launcher.sh
+install -m 0755 %{_builddir}/%{name}-%{version}/lib/sc-launch.sh %{buildroot}%{_datadir}/%{name}/sc-launch.sh
 
 # Create desktop file
 echo "[Desktop Entry]
@@ -56,7 +56,7 @@ Categories=Game" > %{buildroot}%{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/256x256/apps/lug-logo.png
 %{_datadir}/icons/hicolor/256x256/apps/rsi-launcher.png
 %{_datadir}/%{name}/lutris-starcitizen.json
-%{_datadir}/%{name}/sc-launcher.sh
+%{_datadir}/%{name}/sc-launch.sh
 %{_datadir}/applications/%{name}.desktop
 
 %changelog
