@@ -23,7 +23,6 @@ Requires:       unzip
 Requires:       wget 
 Requires:       which
 Requires:       hicolor-icon-theme
-Requires:       zenity
 
 # Soft dependency for system Wine, optional but recommended.
 Recommends:     wine
