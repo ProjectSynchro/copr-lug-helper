@@ -2,7 +2,7 @@
 
 Name:           lug-helper
 Version:        %{tag}
-Release:        %autorelease
+Release:        2
 Summary:        This script is designed to help you manage and optimize Star Citizen on Linux.
 
 # SPDX
@@ -14,10 +14,18 @@ Requires:       bash
 Requires:       coreutils
 Requires:       curl
 Requires:       polkit
-Requires:       winetricks
+Requires:       zenity
 
-# Soft dependency for Zenity and Wine, optional but recommended.
-Recommends:     zenity
+# Winetricks dependencies
+Requires:       cabextract 
+Requires:       gzip 
+Requires:       unzip 
+Requires:       wget 
+Requires:       which
+Requires:       hicolor-icon-theme
+Requires:       zenity
+
+# Soft dependency for system Wine, optional but recommended.
 Recommends:     wine
 
 BuildArch: noarch
