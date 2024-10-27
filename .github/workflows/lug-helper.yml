@@ -15,7 +15,7 @@ jobs:
       - name: Get Latest Tag
         id: get-tag
         run: |
-          latest_tag=$(curl -s https://api.github.com/repos/ValveSoftware/gamescope/tags | jq -r '.[0].name')
+          latest_tag=$(curl -s https://api.github.com/repos/starcitizen-lug/lug-helper/tags | jq -r '.[0].name')
           echo "latest-tag=$latest_tag" >> $GITHUB_OUTPUT
 
       - name: Get Current Tag
