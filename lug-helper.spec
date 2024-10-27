@@ -1,5 +1,7 @@
+%global tag 3.2
+
 Name:           lug-helper
-Version:        3.2
+Version:        %{tag}
 Release:        %autorelease
 Summary:        This script is designed to help you manage and optimize Star Citizen on Linux.
 

@@ -1,0 +1,48 @@
+name: Update LUG-Helper
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 * * * *"
+
+jobs:
+  update-lughelper:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Get Latest Tag
+        id: get-tag
+        run: |
+          latest_tag=$(curl -s https://api.github.com/repos/ValveSoftware/gamescope/tags | jq -r '.[0].name')
+          echo "latest-tag=$latest_tag" >> $GITHUB_OUTPUT
+
+      - name: Get Current Tag
+        id: get-current-tag
+        run: |
+          current_tag=$(grep -oP '(?<=^%global tag ).*' lug-helper.spec)
+          echo "current-tag=$current_tag" >> $GITHUB_OUTPUT
+
+      - name: Compare Tags
+        id: compare-tags
+        run: |
+          if [ "${{ steps.get-tag.outputs.latest-tag }}" != "${{ steps.get-current-tag.outputs.current-tag }}" ]; then
+            echo "new-tag='true'" >> $GITHUB_OUTPUT
+          else
+            echo "new-tag='false'" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Update Spec File
+        if: ${{ contains(steps.compare-tags.outputs.new-tag, 'true') }}
+        run: |
+          sed -i "s/%global tag .*/%global tag ${{ steps.get-tag.outputs.latest-tag }}/g" lug-helper.spec
+          
+      - name: Commit and Push Changes
+        if: ${{ contains(steps.compare-tags.outputs.new-commit, 'true') }}
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add lug-helper.spec
+          git commit -m "lug-helper.spec: Update version to ${{ steps.get-commit.outputs.latest-tag }}"
+          git push
