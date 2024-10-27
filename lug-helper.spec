@@ -1,6 +1,6 @@
 Name:           lug-helper
-Version:        3.1
-Release:        2
+Version:        3.2
+Release:        %autorelease
 Summary:        This script is designed to help you manage and optimize Star Citizen on Linux.
 
 # SPDX
@@ -8,7 +8,6 @@ License:        GPL-3.0-only
 URL:            https://starcitizen-lug.github.io
 Source0:        https://github.com/starcitizen-lug/lug-helper/archive/refs/tags/v%{version}.tar.gz
 
-Source1:        https://raw.githubusercontent.com/starcitizen-lug/lug-helper/d43b92d866b135c66a428edf1431c0019e4f2eed/lug-logo.png
 Requires:       bash
 Requires:       coreutils
 Requires:       curl
@@ -27,7 +26,6 @@ designed to help you manage and optimize Star Citizen on Linux.
 
 %prep
 %autosetup -p1 -n %{name}-%{version}
-cp %{_sourcedir}/lug-logo.png %{_builddir}/%{name}-%{version}
 
 %build
 # No specific build steps
