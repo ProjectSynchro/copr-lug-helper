@@ -1,20 +1,23 @@
 Name:           lug-helper
 Version:        3.1
-Release:        %autorelease
+Release:        2
 Summary:        This script is designed to help you manage and optimize Star Citizen on Linux.
 
 # SPDX
 License:        GPL-3.0-only
 URL:            https://starcitizen-lug.github.io
 Source0:        https://github.com/starcitizen-lug/lug-helper/archive/refs/tags/v%{version}.tar.gz
-Source1:        https://raw.githubusercontent.com/starcitizen-lug/lug-helper/d43b92d866b135c66a428edf1431c0019e4f2eed/lug-logo.png
-Requires:  bash
-Requires:  coreutils
-Requires:  curl
-Requires:  polkit
 
-# Soft dependency for Zenity, optional but recommended
-Recommends: zenity
+Source1:        https://raw.githubusercontent.com/starcitizen-lug/lug-helper/d43b92d866b135c66a428edf1431c0019e4f2eed/lug-logo.png
+Requires:       bash
+Requires:       coreutils
+Requires:       curl
+Requires:       polkit
+Requires:       winetricks
+
+# Soft dependency for Zenity and Wine, optional but recommended.
+Recommends:     zenity
+Recommends:     wine
 
 BuildArch: noarch
 
