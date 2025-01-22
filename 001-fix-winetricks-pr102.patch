@@ -1,0 +1,25 @@
+From 8ead029cdb32f74b9fa9f74687038f121d3385a3 Mon Sep 17 00:00:00 2001
+From: Jack Greiner <jack@emoss.org>
+Date: Tue, 21 Jan 2025 23:53:55 -0500
+Subject: [PATCH] lug-helper.sh: Pin winetricks version to 20250102 as all
+ verbs being used have been stabilized
+
+Protects against bugs like: https://github.com/Winetricks/winetricks/issues/2325
+---
+ lug-helper.sh | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/lug-helper.sh b/lug-helper.sh
+index 00788d9..72510b5 100755
+--- a/lug-helper.sh
++++ b/lug-helper.sh
+@@ -232,7 +232,8 @@ rsi_installer="RSI Launcher-Setup-2.1.1.exe"
+ rsi_installer_url="https://install.robertsspaceindustries.com/rel/2/$rsi_installer"
+ 
+ # Winetricks download url
+-winetricks_url="https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks"
++winetricks_version="20250102"
++winetricks_url="https://raw.githubusercontent.com/Winetricks/winetricks/refs/tags/$winetricks_version/src/winetricks"
+ 
+ # Github repo and script version info
+ repo="starcitizen-lug/lug-helper"
