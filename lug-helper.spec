@@ -9,7 +9,6 @@ Summary:        This script is designed to help you manage and optimize Star Cit
 License:        GPL-3.0-only
 URL:            https://starcitizen-lug.github.io
 Source0:        https://github.com/starcitizen-lug/lug-helper/archive/refs/tags/v%{version}.tar.gz
-Patch0:         001-fix-winetricks-pr102.patch
 
 Requires:       bash
 Requires:       coreutils
@@ -35,7 +34,7 @@ The %{name} package contains the lug-helper script which is
 designed to help you manage and optimize Star Citizen on Linux.
 
 %prep
-%autosetup -p1 -n %{name}-%{version} -a0
+%autosetup -p1 -n %{name}-%{version}
 
 %build
 # No specific build steps
