@@ -2,7 +2,7 @@
 
 Name:           lug-helper
 Version:        %{tag}
-Release:        1.%{date}%{?dist}
+Release:        1.%{lua:print(os.date('%Y%m%d'))}%{?dist}
 Summary:        This script is designed to help you manage and optimize Star Citizen on Linux.
 
 # SPDX
