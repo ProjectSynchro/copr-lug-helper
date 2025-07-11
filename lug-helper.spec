@@ -1,4 +1,4 @@
-%global tag 4.0
+%global tag 4.1
 
 Name:           lug-helper
 Version:        %{tag}
