@@ -45,12 +45,17 @@ mkdir -p %{buildroot}%{_datadir}/icons/hicolor/256x256/apps
 mkdir -p %{buildroot}%{_datadir}/%{name}
 mkdir -p %{buildroot}%{_datadir}/applications
 
-# Copy files to their appropriate destinations
+# Copy main script
 install -m 0755 %{_builddir}/%{name}-%{version}/%{name}.sh %{buildroot}%{_bindir}/%{name}
-install -m 0644 %{_builddir}/%{name}-%{version}/lug-logo.png %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/lug-logo.png
-install -m 0644 %{_builddir}/%{name}-%{version}/rsi-launcher.png %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/rsi-launcher.png
-install -m 0644 %{_builddir}/%{name}-%{version}/lib/lutris-starcitizen.json %{buildroot}%{_datadir}/%{name}/lutris-starcitizen.json
-install -m 0755 %{_builddir}/%{name}-%{version}/lib/sc-launch.sh %{buildroot}%{_datadir}/%{name}/sc-launch.sh
+
+# Copy all PNG icons
+install -m 0644 %{_builddir}/%{name}-%{version}/*.png %{buildroot}%{_datadir}/icons/hicolor/256x256/apps/
+
+# Copy all files from lib directory as regular files
+find %{_builddir}/%{name}-%{version}/lib -type f ! -name 'sc-launch.sh' -exec install -m 0644 {} %{buildroot}%{_datadir}/%{name}/ \;
+
+# Ensure sc-launch.sh is executable
+install -m 0755 %{_builddir}/%{name}-%{version}/lib/sc-launch.sh %{buildroot}%{_datadir}/%{name}/
 
 # Create desktop file
 echo "[Desktop Entry]
