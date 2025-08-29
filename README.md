@@ -1,3 +1,6 @@
+> ⚠️ **Notice:**  
+> This project has migrated to **[Codeberg](https://codeberg.org/Synchro/copr-lug-helper)**. 
+
 ### COPR repo for the Star Citizen Linux User Group's lug-helper script.
 For more info check out the LUG wiki:  [https://starcitizen-lug.github.io](https://starcitizen-lug.github.io)
 
